@@ -30,6 +30,22 @@ app.use('/', require('./routes'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+
+app.use(session({
+    name: 'thesocialnetwork',
+    // ToDo change the secret before deployment in production mode
+    secret: 'blahsomething',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.listen(port, function(err){
     if(err)
     {
