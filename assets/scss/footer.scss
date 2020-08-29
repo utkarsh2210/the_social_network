@@ -1,0 +1,39 @@
+@mixin initial() {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+footer{
+    background-color: rgb(122, 86, 252);
+    height: auto;
+    
+    #footer-container{
+        display: flex;
+        padding: 15px;
+        color: white;
+        justify-content: flex-start;
+
+        i{
+            margin-right: 4px;
+            font-size: 0.8rem;
+        }
+    }
+
+    a{
+        @include initial();
+        color: white;
+        text-decoration: none;
+    }
+
+    ul{
+        @include initial();
+        list-style: none;
+        padding: 0 20px;
+    }
+
+    p{
+        @include initial();
+    }
+}

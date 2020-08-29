@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/css/layout.css">
         <link rel="stylesheet" type="text/css" href="/css/header.css">
         <link rel="stylesheet" type="text/css" href="/css/footer.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <%- style %>
     </head>
 
@@ -15,12 +16,27 @@
 
         <main id="layout-main">
             <%- body %>
-            
+
         </main>
         
 
         <%- include('_footer'); %>
 
         <%- script %>
+        <script src="/js/three.r119.min.js"></script>
+        <script src="/js/vanta.waves.min.js"></script>
+        <script>
+            VANTA.WAVES({
+            el: "html",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xb0c28
+            })  
+        </script>
     </body>
 </html>

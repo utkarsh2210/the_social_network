@@ -1,0 +1,30 @@
+footer {
+  background-color: #7a56fc;
+  height: auto; }
+  footer #footer-container {
+    display: flex;
+    padding: 15px;
+    color: white;
+    justify-content: flex-start; }
+    footer #footer-container i {
+      margin-right: 4px;
+      font-size: 0.8rem; }
+  footer a {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none; }
+  footer ul {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.1rem;
+    list-style: none;
+    padding: 0 20px; }
+  footer p {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 1.1rem; }
