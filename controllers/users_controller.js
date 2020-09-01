@@ -15,10 +15,12 @@ module.exports.profile = function(req, res){
 
 module.exports.update = function(req, res){
     if(req.user.id == req.params.id){
+        req.flash('success', 'Profile Updated!');
         User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
             return res.redirect('back');
         });
     }else{
+        req.flash('error', 'Unauthorized!');
         return res.status(401).send('Unauthorized');
     }
 }
@@ -47,6 +49,7 @@ module.exports.signIn = function(req, res){
 // get the sign up data
 module.exports.create = function(req, res){
     if(req.body.password != req.body.confirm_password){
+        req.flash('error', "Passwords Do Not Match!");
         return res.redirect('back');
     }
 
@@ -64,10 +67,11 @@ module.exports.create = function(req, res){
                     console.log('Error in creating user while signing up');
                     return;
                 }
-
+                req.flash('success', 'Successfully Signed Up!');
                 return res.redirect('/users/sign-in');
             });
         }else{
+            req.flash('error', "Email Already Taken");
             return res.redirect('back');
         }
 
