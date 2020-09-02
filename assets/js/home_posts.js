@@ -70,7 +70,13 @@
         })
     }
 
+    let deleteAllPosts = function(){
+        $('#posts-list-container>ul>li').each(function(){
+            deletePost($(' .delete-post-button', this));
+        });
+    }
 
     createPost();
+    deleteAllPosts();
 }
 
