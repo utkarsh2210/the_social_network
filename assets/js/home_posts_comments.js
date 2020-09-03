@@ -77,6 +77,8 @@ class PostComments{
                 success: function(data){
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
+
+                    flash_msg('success', 'Comment Published!');
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
 
                 }, error: function(error){
@@ -118,6 +120,7 @@ class PostComments{
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#comment-${data.data.comment_id}`).remove();
+                    flash_msg('success', 'Comment Deleted!');
                     
                 },error: function(error){
                     console.log(error.responseText);
