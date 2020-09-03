@@ -25,7 +25,7 @@ function flash_msg(type, message)
                     $('#posts-list-container>ul').prepend(newPost);
                     flash_msg('success', 'Post created Successfully!');
                     deletePost($(' .delete-post-button', newPost));
-                    // new PostComments(data.data.post._id);
+                    new PostComments(data.data.post._id);
                     $("#new-post-form")[0].reset();
                 }, error: function(error){
                     console.log(error.responseText);
@@ -88,8 +88,8 @@ function flash_msg(type, message)
     let deleteAllPosts = function(){
         $('#posts-list-container>ul>li').each(function(){
             deletePost($(' .delete-post-button', this));
-            // let postId = $(this).prop('id').split("-")[1]
-            // new PostComments(postId);
+            let postId = $(this).prop('id').split("-")[1]
+            new PostComments(postId);
         });
 
     }

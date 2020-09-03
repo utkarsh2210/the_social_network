@@ -1,42 +1,129 @@
 
-    let createComment = function(){
+    // let createComment = function(){
         
-        let newCommentForm = $(`#new-comment-form`);
-        newCommentForm.submit(function(e){
+    //     let newCommentForm = $(`#new-comment-form`);
+    //     newCommentForm.submit(function(e){
+    //         e.preventDefault();
+
+    //         $.ajax({
+    //             type: 'post',
+    //             url: '/comments/create',
+    //             data: newCommentForm.serialize(),
+    //             success: function(data){
+    //                 let newComment = newCommentDom(data.data.comment);
+    //                 // console.log(data.data.comment);
+    //                 $(`#post-comments-${data.data.comment.post}`).prepend(newComment);
+    //             }, error: function(error){
+    //                 console.log(error);
+    //             }
+
+    //         });
+    //     });
+    // }
+
+    // // method to create a coomend in DOM
+    // let newCommentDom = function(comment){
+    //     return $(`<li id="comment-${ comment._id }">
+    //         <p>
+    //             <small>
+    //                 <a href="/comments/destroy/${ comment._id }">X</a>
+    //             </small>
+    //             ${ comment.content }
+    //             <br>
+    //             <small>
+    //                 ${ comment.user.name }
+    //             </small>
+    //         </p>
+    //     </li>`)
+
+    // }
+    // // Comments();
+    // createComment();
+
+
+// Let's implement this via classes
+
+// this class would be initialized for every post on the page
+// 1. When the page loads
+// 2. Creation of every post dynamically via AJAX
+
+class PostComments{
+    // constructor is used to initialize the instance of the class whenever a new instance is created
+    constructor(postId){
+        this.postId = postId;
+        this.postContainer = $(`#post-${postId}`);
+        this.newCommentForm = $(`#post-${postId}-comments-form`);
+
+        this.createComment(postId);
+
+        let self = this;
+        // call for all the existing comments
+        $(' .delete-comment-button', this.postContainer).each(function(){
+            self.deleteComment($(this));
+        });
+    }
+
+
+    createComment(postId){
+        let pSelf = this;
+        this.newCommentForm.submit(function(e){
             e.preventDefault();
+            let self = this;
 
             $.ajax({
                 type: 'post',
                 url: '/comments/create',
-                data: newCommentForm.serialize(),
+                data: $(self).serialize(),
                 success: function(data){
-                    let newComment = newCommentDom(data.data.comment);
-                    // console.log(data.data.comment);
-                    $(`#post-comments-${data.data.comment.post}`).prepend(newComment);
-                }, error: function(error){
-                    console.log(error);
-                }
+                    let newComment = pSelf.newCommentDom(data.data.comment);
+                    $(`#post-comments-${postId}`).prepend(newComment);
+                    pSelf.deleteComment($(' .delete-comment-button', newComment));
 
+                }, error: function(error){
+                    console.log(error.responseText);
+                }
             });
+
+
         });
     }
 
-    // method to create a coomend in DOM
-    let newCommentDom = function(comment){
+
+    newCommentDom(comment){
+        // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${ comment._id }">
-            <p>
-                <small>
-                    <a href="/comments/destroy/${ comment._id }">X</a>
-                </small>
-                ${ comment.content }
-                <br>
-                <small>
-                    ${ comment.user.name }
-                </small>
-            </p>
-        </li>`)
+                        <p>
+                            
+                            <small>
+                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
+                            </small>
+                            
+                            ${comment.content}
+                            <br>
+                            <small>
+                                ${comment.user.name}
+                            </small>
+                        </p>    
 
+                </li>`);
     }
-    // Comments();
-    createComment();
 
+
+    deleteComment(deleteLink){
+        $(deleteLink).click(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'get',
+                url: $(deleteLink).prop('href'),
+                success: function(data){
+                    $(`#comment-${data.data.comment_id}`).remove();
+                    
+                },error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+
+        });
+    }
+}
