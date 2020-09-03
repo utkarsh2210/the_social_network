@@ -36,7 +36,21 @@ let storage = multer.diskStorage({
   });
 
 //static methods
-userSchema.statics.uploadedAvatar = multer({storage: storage}).single('avatar');
+userSchema.statics.uploadedAvatar = multer({
+    storage: storage,
+    fileFilter: function(req, file, cb) {
+        // Accept images only
+        if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+            req.flash('error', 'Only Image Files Can Be Uploaded!!');
+            req.fileValidationError = 'Only image files are allowed!';
+            return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true)
+    },
+    limits:{
+        fileSize: 1024 * 1024
+    }}).single('avatar');
+
 userSchema.statics.avatarPath = AVATAR_PATH;
 
 
