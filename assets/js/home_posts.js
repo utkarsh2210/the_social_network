@@ -1,4 +1,15 @@
-{   // method to submit the form data for new post using AJAX
+function flash_msg(type, message)
+{
+    new Noty({
+        theme: 'relax',
+        text: message,
+        type: type,
+        layout: 'topRight',
+        timeout: 1000,
+    }).show();
+}
+
+// method to submit the form data for new post using AJAX
     let createPost = function(){
         let newPostForm = $('#new-post-form');
 
@@ -12,7 +23,10 @@
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
+                    flash_msg('success', 'Post created Successfully!');
                     deletePost($(' .delete-post-button', newPost));
+                    // new PostComments(data.data.post._id);
+                    $("#new-post-form")[0].reset();
                 }, error: function(error){
                     console.log(error.responseText);
                 }
@@ -62,6 +76,7 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    flash_msg('success', 'Post Deleted!');
                 },
                 error: function(error){
                     console.log(error.responseText);
@@ -73,10 +88,12 @@
     let deleteAllPosts = function(){
         $('#posts-list-container>ul>li').each(function(){
             deletePost($(' .delete-post-button', this));
+            // let postId = $(this).prop('id').split("-")[1]
+            // new PostComments(postId);
         });
+
     }
 
-    createPost();
-    deleteAllPosts();
-}
 
+    deleteAllPosts();
+    createPost();
