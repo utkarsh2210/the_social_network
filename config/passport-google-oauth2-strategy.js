@@ -1,5 +1,5 @@
 const passport = require('passport');
-const googleStrategy = require('passport-google-auth').OAuth2Strategy;
+const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 
 const User = require('../models/user');
@@ -29,7 +29,7 @@ passport.use(new googleStrategy({
                 // if not found, create the user and set it as req.user(basically, sign in)
                 User.create({
                     name: profile.displayName,
-                    email: profile.emails[0],
+                    email: profile.emails[0].value,
                     password: crypto.randomBytes(20).toString('hex')
 
                 }, function(err, user){
