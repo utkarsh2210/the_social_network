@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 const path = require('path');
-const { relative } = require('path');
+const relative = require('path');
 
 
 let transporter = nodemailer.createTransport({
