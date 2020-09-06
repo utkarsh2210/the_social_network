@@ -33,7 +33,7 @@ module.exports.toggleLike = async function(req, res){
 
             existingLike.remove();
             deleted = true;
-            
+
         }else{
             // else make a new like
 
@@ -43,7 +43,7 @@ module.exports.toggleLike = async function(req, res){
                 onModel: req.query.type
             });
 
-            likeable.likes.push(like);
+            likeable.likes.push(newLike._id);
             likeable.save();
         }
 
