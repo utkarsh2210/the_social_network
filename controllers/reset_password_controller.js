@@ -6,6 +6,11 @@ const queue = require('../config/kue');
 const resetPassWorker = require('../workers/reset_password_worker');
 
 module.exports.email_page = async function(req, res){
+    if (req.user)
+    {
+        return res.redirect('back');
+    }
+
     return res.render('forgot_password_email', 
     { 
         title: 'The Social Network' 
@@ -13,6 +18,11 @@ module.exports.email_page = async function(req, res){
 }
 
 module.exports.reset_pass_send_mail = async function(req, res){
+
+    if (req.user)
+    {
+        return res.redirect('back');
+    }
 
     let token_string = crypto.randomBytes(20).toString('hex');
     let user = await User.findOne({email: req.body.email});
@@ -47,12 +57,20 @@ module.exports.reset_pass_send_mail = async function(req, res){
 }
 
 module.exports.change_password_page = async function(req, res){
+
+    if (req.user)
+    {
+        return res.redirect('back');
+    }
+
     let token_in_link = req.query.access_token;
     let token = await Token.findOne({ access_token: token_in_link });
+
     if (!token.is_valid)
     {
         return res.redirect('back');
     }
+    
     return res.render('change_password', 
     { 
         title: ' Change Password', 
@@ -61,6 +79,13 @@ module.exports.change_password_page = async function(req, res){
 }
 
 module.exports.changed_password = function(req, res){
+
+    if (req.user)
+    {
+        return res.redirect('back');
+    }
+
+
     let token_in_link = req.body.access_token;
     let password = req.body.password;
     let confirm_password = req.body.confirm_password;
