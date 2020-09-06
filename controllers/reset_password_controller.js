@@ -45,3 +45,57 @@ module.exports.reset_pass_send_mail = async function(req, res){
     }
 
 }
+
+module.exports.change_password_page = async function(req, res){
+    let token_in_link = req.query.access_token;
+    let token = await Token.findOne({ access_token: token_in_link });
+    if (!token.is_valid)
+    {
+        return res.redirect('back');
+    }
+    return res.render('change_password', 
+    { 
+        title: ' Change Password', 
+        access_token: token_in_link 
+    });
+}
+
+module.exports.changed_password = function(req, res){
+    let token_in_link = req.body.access_token;
+    let password = req.body.password;
+    let confirm_password = req.body.confirm_password;
+
+    if (password!= confirm_password)
+    {
+        req.flash('error', 'Please enter same password in both the fields!');
+        return res.redirect('back');
+    }
+
+    if(password=="")
+    {
+        req.flash('error', 'Please enter a non empty password in both the fields!');
+        return res.redirect('back');
+    }
+
+    Token.findOneAndUpdate({access_token: token_in_link}, {$set:{is_valid:false}}, function(error, token){
+        if(error){
+            console.log('Error in finding the token', err);
+        }
+
+        if (!token.is_valid)
+        {
+            return res.redirect('back');
+        }
+
+        User.findByIdAndUpdate(token.user, {$set:{password:password}}, function(error, user)
+        {
+            if(error)
+            {
+                console.log('Error in finding the user with the provided token!');
+                return;
+            }
+            console.log(user.password, token.is_valid);
+            return res.redirect('/users/sign-in');
+        });
+    });
+}
