@@ -9,7 +9,8 @@ router.get('/', homeController.home);
 router.use('/users', require('./users'));
 router.use('/posts', require('./posts'));
 router.use('/comments', require('./comments'));
-router.use('/reset_password', require('./reset_password_router')); 
+router.use('/reset_password', require('./reset_password_router'));
+router.use('/likes', require('./likes'));  
 
 
 router.use('/api', require('./api'));
