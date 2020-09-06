@@ -1,6 +1,7 @@
+const Like = require('../models/like');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const Like = require('../models/like');
+
 
 
 module.exports.toggleLike = async function(req, res){
@@ -12,9 +13,9 @@ module.exports.toggleLike = async function(req, res){
         let deleted = false;
 
         if(req.query.type == 'Post'){
-            likeable = await Post.findById(req.query.id).populated('likes');
+            likeable = await Post.findById(req.query.id).populate('likes');
         }else{
-            likeable = await (await Comment.findById(req.query.id)).populated('likes');
+            likeable = await Comment.findById(req.query.id).populate('likes');
         }
 
 
@@ -46,6 +47,7 @@ module.exports.toggleLike = async function(req, res){
             likeable.likes.push(newLike._id);
             likeable.save();
         }
+
 
         return res.json(200, {
             message: 'Request successful',
