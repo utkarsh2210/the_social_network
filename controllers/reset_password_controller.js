@@ -45,7 +45,7 @@ module.exports.reset_pass_send_mail = async function(req, res){
             }
 
             console.log('job enqueued', job.id);
-            req.flash('success', 'Please Check Your Email-id for the reset link');
+            req.flash('success', 'Please check your Mail for the reset link');
             return res.redirect('back');
         });
 
