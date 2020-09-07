@@ -80,7 +80,7 @@ class PostComments{
                    
                     pSelf.deleteComment($('.delete-comment-button', newComment));
 
-                    
+                    new ToggleLike($(' .toggle-like-button', newComment));
                     flash_msg('success', 'Comment Published!');
 
                 }, error: function(error){
