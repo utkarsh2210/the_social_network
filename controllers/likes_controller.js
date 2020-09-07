@@ -54,7 +54,7 @@ module.exports.toggleLike = async function(req, res){
             data: {
                 deleted: deleted
             }
-        });
+        })
 
         
     }catch(err){

@@ -24,14 +24,14 @@ function flash_msg(type, message)
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     flash_msg('success', 'Post created Successfully!');
-                    deletePost($(' .delete-post-button', newPost));
+                    deletePost($('.delete-post-button', newPost));
 
                     // call the create comment class
                     new PostComments(data.data.post._id);
                     $("#new-post-form")[0].reset();
 
                     // for creating functionality of toggle like button on new post
-                    new ToggleLike($(' .toggle-like-button', newPost));
+                    new ToggleLike($('.toggle-like-button', newPost));
 
                 }, error: function(error){
                     console.log(error.responseText);
@@ -62,7 +62,7 @@ function flash_msg(type, message)
             </p>
             <div class="post-comments">
 
-                    <form action="/comments/create" method="POST">
+                    <form id="post-${ post._id }-comments-form" action="/comments/create" method="POST">
                             <input type="text" name="content" placeholder="Type Here to add comment..." required>
                             <input type="hidden" name="post" value="${ post._id }">
                             <input type="submit" value="Add Comment">
@@ -108,6 +108,6 @@ function flash_msg(type, message)
 
     }
 
-
-    deleteAllPosts();
     createPost();
+    deleteAllPosts();
+   

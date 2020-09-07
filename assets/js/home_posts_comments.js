@@ -58,7 +58,7 @@ class PostComments{
 
         let self = this;
         // call for all the existing comments
-        $(' .delete-comment-button', this.postContainer).each(function(){
+        $('.delete-comment-button', this.postContainer).each(function(){
             self.deleteComment($(this));
         });
     }
@@ -77,9 +77,11 @@ class PostComments{
                 success: function(data){
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
+                   
+                    pSelf.deleteComment($('.delete-comment-button', newComment));
 
+                    
                     flash_msg('success', 'Comment Published!');
-                    pSelf.deleteComment($(' .delete-comment-button', newComment));
 
                 }, error: function(error){
                     console.log(error.responseText);
@@ -105,6 +107,7 @@ class PostComments{
                             <small>
                                 ${comment.user.name}
                             </small>
+                            
                             <small>
                             
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
