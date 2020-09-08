@@ -20,7 +20,26 @@
     </section>
 
     <section id="user-friends">
-        <h4>Friends</h4>
+        <div id="friends-container">
+            <h4>
+                Friends
+            </h4>
+            <ul>
+                <%if(locals.all_friends.length==0){%>
+                    <h6>Friends list is empty.</h6>
+                <%}%>
+
+                <%for(f of locals.all_friends){%>
+                <li>
+                    <div>
+                        <a href="/users/profile/<%=f.friend_id%>"><%=f.friend_name%></a>
+                    </div>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+
+        <h4>All Users</h4>
         <% for(u of all_users) {%>
             <p>
                 <a href="/users/profile/<%= u.id %>"> <%= u.name %> </a>
