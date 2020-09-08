@@ -10,7 +10,7 @@ module.exports.toggle_friendship = function(req, res){
         function (err, friends)
         {
             console.log('###########', friends);
-            
+
             if (err)
             {
                 console.log('There was an error in finding the friendship between the users', err);
@@ -56,7 +56,7 @@ module.exports.toggle_friendship = function(req, res){
                     {
                         console.log('There was an error in creating a friendship!', err);
                     }
-                    new_friendship.save();
+                    new_friend.save();
                     /* updating users database */
                     User.findByIdAndUpdate(from_id, { $push: { friendships: new_friend._id } }, function (err, data)
                     {
