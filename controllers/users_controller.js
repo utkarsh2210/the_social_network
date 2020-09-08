@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
-
+const Friendship = require('../models/friendship');
 
 
 module.exports.profile = function(req, res){
@@ -23,13 +23,16 @@ module.exports.profile = function(req, res){
             {
                 are_friends = true;
             }
+        
+
+            return res.render('user_profile', { 
+                title: "Profile Page",
+                profile_user: user,
+                are_friends: are_friends
+            });
+
         });
 
-        return res.render('user_profile', { 
-            title: "Profile Page",
-            profile_user: user,
-            are_friends: are_friends
-        });
     });
     
  
