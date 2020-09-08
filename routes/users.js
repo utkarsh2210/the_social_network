@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const friendshipsController = require('../controllers/friendships_controller');
 
 const usersController = require('../controllers/users_controller');
 
 router.get('/profile/:id', passport.checkAuthentication, usersController.profile);
+router.get('/profile/:id/toggle_friend', friendshipsController.toggle_friendship);
+
 router.post('/update/:id', passport.checkAuthentication, usersController.update);
 
 router.get('/sign-up', usersController.signUp);
