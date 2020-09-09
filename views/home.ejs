@@ -54,11 +54,13 @@
 <script src="/js/home_posts.js"></script>
 
 <!-- importing the script file for toggle likes, and running it over for the already present posts and comments on the page -->
-<script src="js/toggle_likes.js"></script>
+<script src="/js/toggle_likes.js"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
 </script>
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
 
