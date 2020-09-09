@@ -1,0 +1,29 @@
+#chatbox-container {
+  position: fixed;
+  bottom: 1%;
+  right: 2%;
+  height: 200px;
+  width: 235px;
+  border: 1px solid black; }
+  #chatbox-container ul {
+    list-style-type: none;
+    padding: 0; }
+  #chatbox-container li:nth-child(1) {
+    text-align: left;
+    padding: 10px;
+    background-color: lightcoral;
+    width: 100px;
+    margin-bottom: 5px;
+    left: 2%;
+    margin-left: 10px; }
+  #chatbox-container li:nth-child(2) {
+    text-align: center;
+    padding: 10px;
+    background-color: lightskyblue;
+    width: 100px;
+    margin-left: 105px; }
+  #chatbox-container .message-submit {
+    position: relative; }
+    #chatbox-container .message-submit form {
+      position: fixed;
+      bottom: 1.25%; }

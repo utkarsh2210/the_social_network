@@ -1,0 +1,41 @@
+#chatbox-container{
+    position: fixed;
+    bottom: 1%;
+    right: 2%;
+    height: 200px;
+    width: 235px;
+    border: 1px solid black;
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li:nth-child(1){
+        text-align: left;
+        padding: 10px;
+        background-color: lightcoral;
+        width: 100px;
+        margin-bottom: 5px;
+        left: 2%;
+        margin-left: 10px;
+    }
+
+    li:nth-child(2){
+        text-align: center;
+        padding: 10px;
+        background-color: lightskyblue;
+        width: 100px;
+        margin-left: 105px;
+    }
+
+    .message-submit{
+        position: relative;
+
+        form{
+            position: fixed;
+            bottom: 1.25%;
+        }
+    }
+
+}
