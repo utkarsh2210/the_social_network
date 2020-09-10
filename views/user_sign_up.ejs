@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<!-- <h1>Sign Up</h1>
 
 <form action="/users/create" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
@@ -11,4 +11,91 @@
 
 <p>
     <a href="/users/auth/google">Google Sign In/Sign Up</a>
-</p>
+</p> -->
+
+<!-- <section class="section-one">
+    do not remove this. this is the background
+
+</section>
+
+<section class="col-sm-8 offset-sm-2 section-two pt-5 pb-5 animate__animated animate__jello">
+    <h1 class="text-center font-weight-bold sign-up-logo pb-2">Sign Up</h1>
+    <div class="row align-items-center">
+        <div class="col-sm-8 offset-sm-2">
+            <form action="/users/create" method="POST">
+                <div class="form-group">
+                    <label for="input-name">Name</label>
+                    <input type="text" name="name" id="input-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="input-email">Email</label>
+                    <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp"
+                        placeholder="abc@xyz.com" name="email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="input-password">Password</label>
+                    <input type="password" class="form-control" id="input-password" placeholder="Password" 
+                        name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password"
+                        name="confirm_password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="text-right">
+                <div class="d-inline-block">Or Login using :</div>
+                <div class="d-inline-block">
+                    <a type="button" href="/users/auth/google" class="btn btn-light text-danger font-weight-bold"><i class="fab fa-google"></i>Google</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">Register</h5>
+              <form action="/users/create" class="form-signin" method="POST">
+                <div class="form-label-group">
+                  <input type="text" name="name" id="input-name" class="form-control" required autofocus>
+                  <label for="input-ame">Username</label>
+                </div>
+  
+                <div class="form-label-group">
+                    <label for="input-email">Email</label>
+                    <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp"
+                     name="email" required>
+                </div>
+                
+                <hr>
+  
+                <div class="form-label-group">
+                    <label for="input-password">Password</label>
+                    <input type="password" class="form-control" id="input-password" name="password" required>
+                </div>
+                
+                <div class="form-label-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
+                </div>
+  
+                <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Register">
+                <hr class="my-4">
+                <a type="button" href="/users/auth/google" class="btn btn-lg btn-google btn-block text-uppercase"><i class="fab fa-google mr-2"></i> Sign up with Google</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </section> 
