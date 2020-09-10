@@ -2,7 +2,7 @@
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem; }
 
-section {
+#sign-up {
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF); }
 

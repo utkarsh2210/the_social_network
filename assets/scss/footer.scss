@@ -1,29 +1,32 @@
 @mixin initial() {
     padding: 0px;
     margin: 0px;
-    display: inline-block;
     font-size: 1.1rem;
 }
 
 footer{
-    background-color: rgb(122, 86, 252);
+    background-color: black;
     height: auto;
+    padding: 15px 0;
     
     #footer-container{
         display: flex;
         padding: 15px;
         color: white;
-        justify-content: flex-start;
+        justify-content: space-between;
 
         i{
             margin-right: 4px;
             font-size: 0.8rem;
         }
+
+        .page-links{
+            width: 30%;
+        }
     }
 
     a{
         @include initial();
-        color: white;
         text-decoration: none;
     }
 
@@ -31,6 +34,12 @@ footer{
         @include initial();
         list-style: none;
         padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    li{
+        display: inline-block;
     }
 
     p{
