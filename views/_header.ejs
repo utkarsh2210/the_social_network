@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <div id="header-container">
         <div class="web-logo">
             <p>The Social Network</p>
@@ -28,4 +28,28 @@
         </div>
 
     </div>
+</header> -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="web-logo">
+            <a class="navbar-brand" href="#">The Social Network</a>
+        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <% if(locals.user){ %>
+
+                <li class="nav-item"><a href="/users/profile" class="nav-link text-white mr-2"><%= user.name %></a></li>
+                <li class="nav-item"> <a href="/users/sign-out" type="button" class="btn btn-danger">Sign Out</a> </li>
+                
+                <%}else{%>
+                    
+                <li class="nav-item"><a href="/users/sign-in" type="button"
+                        class="btn btn-success mr-lg-2 ml-lg-2 mt-lg-0 mb-lg-0 mt-sm-2 mb-sm-2">Sign In</a></li>
+                <li class="nav-item"><a href="/users/sign-up" type="button" class="btn btn-dark">Sign Up</a></li>
+                
+                <% }%>
+            </ul>
+        </div>
+      </nav>
 </header>
