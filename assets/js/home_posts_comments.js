@@ -95,29 +95,32 @@ class PostComments{
 
     newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
-        return $(`<li id="comment-${ comment._id }">
-                        <p>
-                            
-                            <small>
-                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-                            </small>
-                            
-                            ${comment.content}
-                            <br>
-                            <small>
-                                ${comment.user.name}
-                            </small>
-                            
-                            <small>
-                            
-                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                    0 Likes
-                                </a>
-                            
-                            </small>
-                        </p>    
-
-                </li>`);
+        return $(`<div id="comment-${comment._id}">
+        <div class="dropdown">
+            <a class="float-right" href="" id="more_options_${comment._id}" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="more_options_${comment._id}">
+                <a class="dropdown-item delete-comment-button" href="/comments/destroy/${comment._id}"><i
+                        class="fas fa-trash-alt"></i>
+                    Delete</a>
+            </div>
+        </div>
+        <b>${comment.user.name}</b>
+        <p>
+            ${comment.content}
+        </p>
+        <div class="align-middle action-buttons">
+            <!-- like button on post -->
+            <a href="/likes/toggle/?id=${comment._id}&type=Comment" class="toggle-like-button"
+                data-likes="0"><i class="far fa-heart"></i> <span>0</span> </a> &nbsp
+            <!-- comment button on post -->
+            <a data-toggle="collapse" href="#collapse${comment._id}" role="button" aria-expanded="false"
+            aria-controls="collapse${comment._id}"><i class="far fa-comment"></i></a>&nbsp
+        </div>
+        <hr>
+    </div>`);
     }
 
 
