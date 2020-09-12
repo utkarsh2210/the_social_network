@@ -17,7 +17,10 @@
         <%}%>
 
 
-        <h5 class="card-title"><%=post.user.name%></h5>
+        <h5 class="card-title"> 
+            <img src="<%= post.user.avatar%>" width="30px" height="30px" style="border-radius: 50%; margin-right: 2px;">
+            <%=post.user.name%>
+        </h5>
         <p class="card-text"><%=post.content%></p>
         <div class="card-text mt-2"><small><%=post.user.updatedAt.toString().substr(0, 15)%></small></div>
         <hr>
