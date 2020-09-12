@@ -79,7 +79,7 @@ class PostComments{
                     $(`#post-comments-${postId}`).prepend(newComment);
                    
                     pSelf.deleteComment($('.delete-comment-button', newComment));
-
+                    $(`#post-${ postId }-comments-form`)[0].reset();
                     new ToggleLike($(' .toggle-like-button', newComment));
                     flash_msg('success', 'Comment Published!');
 

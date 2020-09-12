@@ -44,7 +44,7 @@
         <%if(locals.user){%>
         <form action="/comments/create" method="POST" id="post-<%= post._id %>-comments-form">
             <input type="text" class="form-control" placeholder="Add a new Comment..." aria-label="Username"
-                aria-describedby="basic-addon1" name="content" required>
+                aria-describedby="basic-addon1" name="content" id="comment-box" required>
             <input type="hidden" name="post" value="<%=post._id%>">
             <button type="submit" class="btn btn-primary btn-sm mt-2 mb-2 mr-2">Add Comment</button>
         </form>
