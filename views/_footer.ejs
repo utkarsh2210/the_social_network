@@ -5,14 +5,16 @@
                 <li>
                     <a href="/" class="text-warning">Home</a>
                 </li>
+                <% if(locals.user){ %>
                 <li>
-                    <a href="/users/profile" class="text-warning">Profile</a>
+                    <a href="/users/profile/<%=user.id%>" class="text-warning">Profile</a>
                 </li>
+                <% } %>
                 <li>
                     <a href="#" class="text-warning">About</a>
                 </li>
                 <li>
-                    <a href="#" class="text-warning">Source Code</a>
+                    <a href="https://github.com/utkarsh2210/the_social_network" target="_blank" class="text-warning">Source Code</a>
                 </li>
             </ul>
         </div>

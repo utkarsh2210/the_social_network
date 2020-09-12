@@ -101,7 +101,7 @@ module.exports.update = async function(req, res){
 // render the sign up page
 module.exports.signUp = function(req, res){
     if (req.isAuthenticated()){
-        return res.redirect('/users/profile');
+        return res.redirect(`/users/profile/${req.user._id}`);
     }
     
     return res.render('user_sign_up', {
@@ -112,7 +112,7 @@ module.exports.signUp = function(req, res){
 // render the sign in page
 module.exports.signIn = function(req, res){
     if (req.isAuthenticated()){
-        return res.redirect('/users/profile');
+        return res.redirect(`/users/profile/${req.user._id}`);
     }
     return res.render('user_sign_in', {
         title: "Network | Sign In"
