@@ -1,0 +1,33 @@
+footer {
+  background-color: black;
+  height: auto;
+  padding: 15px; }
+  footer #footer-container {
+    display: flex;
+    padding: 15px;
+    color: white;
+    justify-content: space-between; }
+    footer #footer-container i {
+      margin-right: 4px;
+      font-size: 0.8rem; }
+    footer #footer-container .page-links {
+      width: 30%; }
+  footer a {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.1rem;
+    text-decoration: none; }
+  footer ul {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.1rem;
+    list-style: none;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; }
+  footer li {
+    display: inline-block; }
+  footer p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.1rem; }
