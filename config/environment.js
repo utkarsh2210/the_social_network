@@ -23,8 +23,25 @@ const development = {
 
 
 const production = {
-    name: 'production'
+    name: 'production',
+    asset_path: process.env.THE_SOCIAL_NETWORK_ASSET_PATH,
+    session_cookie_key: process.env.THE_SOCIAL_NETWORK_SESSION_COOKIE_KEY,
+    db: process.env.THE_SOCIAL_NETWORK_DB,
+    smtp: {
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.THE_SOCIAL_NETWORK_GMAIL_USERNAME,
+            pass: process.env.THE_SOCIAL_NETWORK_GMAIL_PASSWORD
+        }
+    },
+    google_client_id: process.env.THE_SOCIAL_NETWORK_GOOGLE_CLIENT_ID,
+    google_client_secret: process.env.THE_SOCIAL_NETWORK_GOOGLE_CLIENT_SECRET,
+    google_call_back_url: process.env.THE_SOCIAL_NETWORK_GOOGLE_CALLBACK_URL,
+    jwt_secret: process.env.THE_SOCIAL_NETWORK_JWT_SECRET,
 }
 
 
-module.exports = development;
+module.exports = eval(process.env.THE_SOCIAL_NETWORK_ENVIRONMENT) == undefined ? development : eval(process.env.THE_SOCIAL_NETWORK_ENVIRONMENT);
