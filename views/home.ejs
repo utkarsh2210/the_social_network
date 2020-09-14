@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" type="text/css" href="/css/chatbox.css">
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
+<link rel="stylesheet" type="text/css" href="<%= assetPath('css/chatbox.css') %>">
 <div class="container-fluid">
     <div class="row">
         <section class="col-sm-3 mt-4">
@@ -71,10 +71,10 @@
         </div>
 </div>
 
-<script src="/js/home_posts_comments.js"></script>
-<script src="/js/home_posts.js"></script>
+<script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+<script src="<%= assetPath('js/home_posts.js') %>"></script>
 <!-- importing the script file for toggle likes, and running it over for the already present posts and comments on the page -->
-<script src="/js/toggle_likes.js"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;
@@ -82,7 +82,7 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
 <% if(locals.user){ %>
 <script>
     new ChatEngine('user-chat-box', '<%= locals.user.email %>');
