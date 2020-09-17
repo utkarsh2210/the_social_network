@@ -23,8 +23,8 @@ const development = {
         port: 587,
         secure: false,
         auth: {
-            user: '',
-            pass: ''
+            user: process.env.THE_SOCIAL_NETWORK_GMAIL_USERNAME,
+            pass: process.env.THE_SOCIAL_NETWORK_GMAIL_PASSWORD
         }
     },
     google_client_id: "886167792839-2i5in2lhbt46vb11niuuhpi8aft29mll.apps.googleusercontent.com",
