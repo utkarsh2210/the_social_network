@@ -37,6 +37,7 @@ const development = {
     }
 }
 
+// production database, with environment variables added to hide the confidential information
 
 const production = {
     name: 'production',
