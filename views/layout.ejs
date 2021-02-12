@@ -1,66 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
-        <!-- Bootstrap for CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <head>
+    <title><%= title %></title>
+    <!-- Bootstrap for CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
 
-        <!-- JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-       
-        <!-- Noty Js -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="<%= assetPath('css/layout.css') %>">
-        <link rel="stylesheet" type="text/css" href="<%= assetPath('css/header.css') %>">
-        <link rel="stylesheet" type="text/css" href="<%= assetPath('css/footer.css') %>">
-        <link rel="stylesheet" type="text/css" href="<%= assetPath('css/sign_up_in.css') %>">
-        <link rel="stylesheet" type="text/css" href="<%= assetPath('css/forgot_password.css') %>">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <%- style %>
-    </head>
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
 
-    <body>
-        <%- include('_header'); %>
+    <!-- Noty Js -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-        
-        <main id="layout-main">
-            <%- body %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%= assetPath('css/layout.css') %>"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%= assetPath('css/header.css') %>"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%= assetPath('css/footer.css') %>"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%= assetPath('css/sign_up_in.css') %>"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%= assetPath('css/forgot_password.css') %>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <%- style %>
+  </head>
 
-        </main>
-        
+  <body>
+    <%- include('_header'); %>
 
-        <%- include('_footer'); %>
+    <main id="layout-main"><%- body %></main>
 
-        <%- script %>
-        
-        <script>
-            <% if(flash.success && flash.success.length > 0) { %> 
-                new Noty({
-                    theme: 'relax',
-                    text: '<%= flash.success %>',
-                    type: 'success',
-                    layout: 'topRight',
-                    timeout: 1500
-                }).show();
-            <% } %>
+    <%- include('_footer'); %> <%- script %>
 
-            <% if(flash.error && flash.error.length > 0) { %> 
-                new Noty({
-                    theme: 'relax',
-                    text: '<%= flash.error %>',
-                    type: 'error',
-                    layout: 'topRight',
-                    timeout: 1000
-                }).show();
-            <% } %>
-        </script>
-    </body>
+    <script>
+      <% if(flash.success && flash.success.length > 0) { %>
+          new Noty({
+              theme: 'relax',
+              text: '<%= flash.success %>',
+              type: 'success',
+              layout: 'topRight',
+              timeout: 1500
+          }).show();
+      <% } %>
+
+      <% if(flash.error && flash.error.length > 0) { %>
+          new Noty({
+              theme: 'relax',
+              text: '<%= flash.error %>',
+              type: 'error',
+              layout: 'topRight',
+              timeout: 1000
+          }).show();
+      <% } %>
+    </script>
+  </body>
 </html>
-
